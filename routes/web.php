@@ -31,17 +31,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/organizations', OrganizationController::class);
-Route::resource('admin/orders', OrderController::class);
-Route::resource('admin/order-details', OrderDetailController::class);
-Route::resource('admin/order-files', OrderFileController::class);
-Route::resource('admin/order-tasks', OrderTaskController::class);
-Route::resource('admin/products', ProductController::class);
-Route::resource('admin/product-labels', ProductLabelController::class);
-Route::resource('admin/product-storages', ProductStorageController::class);
-Route::resource('admin/return-orders', ReturnOrderController::class);
-Route::resource('admin/roles', RoleController::class);
-Route::resource('admin/stock-entries', StockEntryController::class);
-Route::resource('admin/storage-blocks', StorageBlockController::class);
-Route::resource('admin/users', UserController::class);
-Route::resource('admin/warehouses', WarehouseController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('admin/organizations', OrganizationController::class);
+    Route::resource('admin/orders', OrderController::class);
+    Route::resource('admin/order-details', OrderDetailController::class);
+    Route::resource('admin/order-files', OrderFileController::class);
+    Route::resource('admin/order-tasks', OrderTaskController::class);
+    Route::resource('admin/products', ProductController::class);
+    Route::resource('admin/product-labels', ProductLabelController::class);
+    Route::resource('admin/product-storages', ProductStorageController::class);
+    Route::resource('admin/return-orders', ReturnOrderController::class);
+    Route::resource('admin/roles', RoleController::class);
+    Route::resource('admin/stock-entries', StockEntryController::class);
+    Route::resource('admin/storage-blocks', StorageBlockController::class);
+    Route::resource('admin/users', UserController::class);
+    Route::resource('admin/warehouses', WarehouseController::class);
+});
+
+Auth::routes(['register' => false, 'reset' => false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
