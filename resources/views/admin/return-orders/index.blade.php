@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Return Orders</h1>
+                    <h1>Return Заявки</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('return-orders.create') }}" class="btn btn-primary">Add Return Order</a>
+                    <a href="{{ route('return-orders.create') }}" class="btn btn-primary">Добавить Return Заявка</a>
                 </div>
                 <div class="card-body">
                     <table id="return-orders-table" class="table table-bordered table-hover">

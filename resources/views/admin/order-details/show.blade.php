@@ -27,7 +27,7 @@
                     <dl class="row">
                         <dt class="col-sm-4">ID</dt>
                         <dd class="col-sm-8">{{ $orderDetail->detail_id }}</dd>
-                        <dt class="col-sm-4">Order</dt>
+                        <dt class="col-sm-4">Заявка</dt>
                         <dd class="col-sm-8">{{ $orderDetail->order->id }}</dd>
                         <dt class="col-sm-4">Product</dt>
                         <dd class="col-sm-8">{{ $orderDetail->product->name }}</dd>

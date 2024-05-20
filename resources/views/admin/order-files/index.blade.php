@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('order-files.create') }}" class="btn btn-primary">Add Order File</a>
+                    <a href="{{ route('order-files.create') }}" class="btn btn-primary">Добавить Order File</a>
                 </div>
                 <div class="card-body">
                     <table id="order-files-table" class="table table-bordered table-hover">

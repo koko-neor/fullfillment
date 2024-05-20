@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('user_id');
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            $table->foreignId('role_id')->constrained('roles', 'role_id');
-            $table->foreignId('organization_id')->constrained('organizations', 'organization_id');
+            $table->string('username');
+            $table->string('password');
+            $table->foreignId('role_id')->nullable()->constrained('roles', 'role_id');
+            $table->foreignId('organization_id')->nullable()->constrained('organizations', 'organization_id');
+            $table->boolean('is_superadmin')->default(false);
             $table->timestamps();
         });
     }

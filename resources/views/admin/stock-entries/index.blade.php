@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('stock-entries.create') }}" class="btn btn-primary">Add Stock Entry</a>
+                    <a href="{{ route('stock-entries.create') }}" class="btn btn-primary">Добавить Stock Entry</a>
                 </div>
                 <div class="card-body">
                     <table id="stock-entries-table" class="table table-bordered table-hover">

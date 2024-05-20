@@ -27,7 +27,7 @@
                     <dl class="row">
                         <dt class="col-sm-4">ID</dt>
                         <dd class="col-sm-8">{{ $orderTask->task_id }}</dd>
-                        <dt class="col-sm-4">Order</dt>
+                        <dt class="col-sm-4">Заявка</dt>
                         <dd class="col-sm-8">{{ $orderTask->order_id }}</dd>
                         <dt class="col-sm-4">Assigned To</dt>
                         <dd class="col-sm-8">{{ $orderTask->assigned_to }}</dd>

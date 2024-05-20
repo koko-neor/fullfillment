@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('organizations.create') }}" class="btn btn-primary">Add Organization</a>
+                    <a href="{{ route('organizations.create') }}" class="btn btn-primary">Добавить Organization</a>
                 </div>
                 <div class="card-body">
                     <table id="organizations-table" class="table table-bordered table-hover">
@@ -24,7 +24,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Address</th>
+                            <th>Добавитьress</th>
                             <th>Contact Number</th>
                             <th>Actions</th>
                         </tr>
@@ -35,7 +35,7 @@
                                 <td>{{ $organization->organization_id }}</td>
                                 <td>{{ $organization->name }}</td>
                                 <td>{{ $organization->type }}</td>
-                                <td>{{ $organization->address }}</td>
+                                <td>{{ $organization->Добавитьress }}</td>
                                 <td>{{ $organization->contact_number }}</td>
                                 <td>
                                     <a href="{{ route('organizations.show', $organization) }}" class="btn btn-sm btn-success">View</a>

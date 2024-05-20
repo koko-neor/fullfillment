@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('return-orders.index') }}">Return Orders</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('return-orders.index') }}">Return Заявки</a></li>
                         <li class="breadcrumb-item active">Details</li>
                     </ol>
                 </div>

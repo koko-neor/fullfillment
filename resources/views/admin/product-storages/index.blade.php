@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('product-storages.create') }}" class="btn btn-primary">Add Product Storage</a>
+                    <a href="{{ route('product-storages.create') }}" class="btn btn-primary">Добавить Product Storage</a>
                 </div>
                 <div class="card-body">
                     <table id="product-storages-table" class="table table-bordered table-hover">

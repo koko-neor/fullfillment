@@ -31,8 +31,8 @@
                         <dd class="col-sm-8">{{ $warehouse->organization_id }}</dd>
                         <dt class="col-sm-4">Name</dt>
                         <dd class="col-sm-8">{{ $warehouse->name }}</dd>
-                        <dt class="col-sm-4">Address</dt>
-                        <dd class="col-sm-8">{{ $warehouse->address }}</dd>
+                        <dt class="col-sm-4">Добавитьress</dt>
+                        <dd class="col-sm-8">{{ $warehouse->Добавитьress }}</dd>
                     </dl>
                 </div>
                 <div class="card-footer">

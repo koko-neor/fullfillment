@@ -15,14 +15,14 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('order-details.create') }}" class="btn btn-primary">Add Order Detail</a>
+                    <a href="{{ route('order-details.create') }}" class="btn btn-primary">Добавить Order Detail</a>
                 </div>
                 <div class="card-body">
                     <table id="order-details-table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Order</th>
+                            <th>Заявка</th>
                             <th>Product</th>
                             <th>Quantity Ordered</th>
                             <th>Label</th>

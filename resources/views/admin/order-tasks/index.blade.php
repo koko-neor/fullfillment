@@ -15,14 +15,14 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('order-tasks.create') }}" class="btn btn-primary">Add Order Task</a>
+                    <a href="{{ route('order-tasks.create') }}" class="btn btn-primary">Добавить Order Task</a>
                 </div>
                 <div class="card-body">
                     <table id="order-tasks-table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Order</th>
+                            <th>Заявка</th>
                             <th>Assigned To</th>
                             <th>Task Type</th>
                             <th>Status</th>

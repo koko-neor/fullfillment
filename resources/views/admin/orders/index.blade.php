@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Orders</h1>
+                    <h1>Заявки</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('orders.create') }}" class="btn btn-primary">Add Order</a>
+                    <a href="{{ route('orders.create') }}" class="btn btn-primary">Добавить Заявку</a>
                 </div>
                 <div class="card-body">
                     <table id="orders-table" class="table table-bordered table-hover">

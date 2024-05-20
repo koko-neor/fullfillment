@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('roles.create') }}" class="btn btn-primary">Add Role</a>
+                    <a href="{{ route('roles.create') }}" class="btn btn-primary">Добавить Role</a>
                 </div>
                 <div class="card-body">
                     <table id="roles-table" class="table table-bordered table-hover">

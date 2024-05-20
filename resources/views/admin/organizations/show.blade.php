@@ -31,8 +31,8 @@
                         <dd class="col-sm-8">{{ $organization->name }}</dd>
                         <dt class="col-sm-4">Type</dt>
                         <dd class="col-sm-8">{{ $organization->type }}</dd>
-                        <dt class="col-sm-4">Address</dt>
-                        <dd class="col-sm-8">{{ $organization->address }}</dd>
+                        <dt class="col-sm-4">Добавитьress</dt>
+                        <dd class="col-sm-8">{{ $organization->Добавитьress }}</dd>
                         <dt class="col-sm-4">Contact Number</dt>
                         <dd class="col-sm-8">{{ $organization->contact_number }}</dd>
                     </dl>

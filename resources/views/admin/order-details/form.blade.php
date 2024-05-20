@@ -21,7 +21,7 @@
                             @method('PUT')
                         @endif
                         <div class="mb-3">
-                            <label for="order_id" class="form-label">Order</label>
+                            <label for="order_id" class="form-label">Заявка</label>
                             <select class="form-control" id="order_id" name="order_id">
                                 @foreach($orders as $order)
                                     <option value="{{ $order->order_id }}" {{ (isset($orderDetail) && $orderDetail->order_id == $order->order_id) ? 'selected' : '' }}>{{ $order->id }}</option>

@@ -23,7 +23,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
-            <span class="brand-text font-weight-light">Project</span>
+            <span class="brand-text font-weight-light">Проект</span>
         </a>
 
         <!-- Sidebar -->
@@ -31,7 +31,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="d-block">Admin</a>
+                    <a href="#" class="d-block">Админ</a>
                 </div>
             </div>
 
@@ -41,85 +41,85 @@
                     <li class="nav-item">
                         <a href="{{ route('organizations.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
-                            <p>Organizations</p>
+                            <p>Организации</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('orders.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-cart"></i>
-                            <p>Orders</p>
+                            <p>Заявки</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('order-details.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-cart"></i>
-                            <p>Order Details</p>
+                            <p>Детали заявки</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('order-files.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-cart"></i>
-                            <p>Order files</p>
+                            <p>Файлы заявки</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('order-tasks.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-cart"></i>
-                            <p>Order tasks</p>
+                            <p>Задачи по заявке</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('products.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Products</p>
+                            <p>Продукты</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('product-labels.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Product Label</p>
+                            <p>Этикетки продукта</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('product-storages.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Product Storage</p>
+                            <p>Хранение продуктов</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('return-orders.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Return Order</p>
+                            <p>Возврат заявки</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('roles.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Role</p>
+                            <p>Роль</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('stock-entries.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Stock Entry</p>
+                            <p>Поступления на склад</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('storage-blocks.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-product-hunt"></i>
-                            <p>Storage Block</p>
+                            <p>Складские блоки</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('users.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
-                            <p>User</p>
+                            <p>Пользователь</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('warehouses.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-warehouse"></i>
-                            <p>Warehouse</p>
+                            <p>Склад</p>
                         </a>
                     </li>
                     <!-- Add other sidebar items here -->

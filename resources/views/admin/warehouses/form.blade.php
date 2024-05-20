@@ -33,8 +33,8 @@
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $warehouse->name ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $warehouse->address ?? '') }}">
+                            <label for="address" class="form-label">Добавитьress</label>
+                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $warehouse->Добавитьress ?? '') }}">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ isset($warehouse) ? 'Update' : 'Create' }}</button>
                     </form>

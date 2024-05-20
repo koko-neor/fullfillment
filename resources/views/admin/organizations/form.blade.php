@@ -29,8 +29,8 @@
                             <input type="text" class="form-control" id="type" name="type" value="{{ old('type', $organization->type ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $organization->address ?? '') }}">
+                            <label for="address" class="form-label">Добавитьress</label>
+                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $organization->Добавитьress ?? '') }}">
                         </div>
                         <div class="mb-3">
                             <label for="contact_number" class="form-label">Contact Number</label>

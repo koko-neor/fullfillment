@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('warehouses.create') }}" class="btn btn-primary">Add Warehouse</a>
+                    <a href="{{ route('warehouses.create') }}" class="btn btn-primary">Добавить Warehouse</a>
                 </div>
                 <div class="card-body">
                     <table id="warehouses-table" class="table table-bordered table-hover">
@@ -24,7 +24,7 @@
                             <th>ID</th>
                             <th>Organization</th>
                             <th>Name</th>
-                            <th>Address</th>
+                            <th>Добавитьress</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                 <td>{{ $warehouse->warehouse_id }}</td>
                                 <td>{{ $warehouse->organization_id }}</td>
                                 <td>{{ $warehouse->name }}</td>
-                                <td>{{ $warehouse->address }}</td>
+                                <td>{{ $warehouse->Добавитьress }}</td>
                                 <td>
                                     <a href="{{ route('warehouses.show', $warehouse) }}" class="btn btn-sm btn-success">View</a>
                                     <a href="{{ route('warehouses.edit', $warehouse->warehouse_id) }}" class="btn btn-sm btn-warning">Edit</a>

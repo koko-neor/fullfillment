@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('product-labels.create') }}" class="btn btn-primary">Add Product Label</a>
+                    <a href="{{ route('product-labels.create') }}" class="btn btn-primary">Добавить Product Label</a>
                 </div>
                 <div class="card-body">
                     <table id="product-labels-table" class="table table-bordered table-hover">
