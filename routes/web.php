@@ -15,6 +15,7 @@ use App\Http\Controllers\StockEntryController;
 use App\Http\Controllers\StorageBlockController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin/storage-blocks', StorageBlockController::class);
     Route::resource('admin/users', UserController::class);
     Route::resource('admin/warehouses', WarehouseController::class);
+
+    Route::get('/admin/home', [HomeController::class, 'index'])->name('admin.home');
 });
 
 Auth::routes(['register' => false, 'reset' => false]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

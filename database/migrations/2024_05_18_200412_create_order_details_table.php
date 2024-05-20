@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained('orders', 'order_id');
             $table->foreignId('product_id')->constrained('products', 'product_id');
             $table->integer('quantity_ordered')->nullable();
-            $table->foreignId('label_id')->constrained('product_labels', 'label_id');
             $table->timestamps();
         });
     }

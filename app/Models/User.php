@@ -44,4 +44,18 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function setRememberToken($value)
+    {
+    }
+
+    public function getRememberToken()
+    {
+        return null;
+    }
+
+    public function getRememberTokenName(): string
+    {
+        return 'remember_token';
+    }
+
 }

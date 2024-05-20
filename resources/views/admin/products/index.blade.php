@@ -34,10 +34,14 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->product_id }}</td>
-                                <td>{{ $product->organization_id }}</td>
-                                <td>{{ $product->warehouse_id }}</td>
+                                <td>{{ $product->organization->name }}</td>
+                                <td>{{ $product->warehouse->name }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->sku }}</td>
+                                <td>
+                                    @if ($product->sku)
+                                        <img src="data:image/svg+xml;base64,{{ $product->sku }}" alt="QR Code" width="50">
+                                    @endif
+                                </td>
                                 <td>{{ $product->stock_quantity }}</td>
                                 <td>
                                     <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-success">View</a>

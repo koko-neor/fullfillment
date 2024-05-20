@@ -41,10 +41,6 @@
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="sku" class="form-label">SKU</label>
-                            <input type="text" class="form-control" id="sku" name="sku" value="{{ old('sku', $product->sku ?? '') }}">
-                        </div>
-                        <div class="mb-3">
                             <label for="stock_quantity" class="form-label">Stock Quantity</label>
                             <input type="number" class="form-control" id="stock_quantity" name="stock_quantity" value="{{ old('stock_quantity', $product->stock_quantity ?? '') }}">
                         </div>

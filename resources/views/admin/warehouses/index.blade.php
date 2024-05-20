@@ -24,7 +24,7 @@
                             <th>ID</th>
                             <th>Organization</th>
                             <th>Name</th>
-                            <th>Добавитьress</th>
+                            <th>Адрес</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -34,7 +34,7 @@
                                 <td>{{ $warehouse->warehouse_id }}</td>
                                 <td>{{ $warehouse->organization_id }}</td>
                                 <td>{{ $warehouse->name }}</td>
-                                <td>{{ $warehouse->Добавитьress }}</td>
+                                <td>{{ $warehouse->address }}</td>
                                 <td>
                                     <a href="{{ route('warehouses.show', $warehouse) }}" class="btn btn-sm btn-success">View</a>
                                     <a href="{{ route('warehouses.edit', $warehouse->warehouse_id) }}" class="btn btn-sm btn-warning">Edit</a>

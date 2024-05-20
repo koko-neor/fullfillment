@@ -34,7 +34,9 @@
                         <dt class="col-sm-4">Name</dt>
                         <dd class="col-sm-8">{{ $product->name }}</dd>
                         <dt class="col-sm-4">SKU</dt>
-                        <dd class="col-sm-8">{{ $product->sku }}</dd>
+                        @if ($product->sku)
+                            <dd class="col-sm-8"><img src="data:image/svg+xml;base64,{{ $product->sku }}" alt="QR Code" width="50"></dd>
+                        @endif
                         <dt class="col-sm-4">Stock Quantity</dt>
                         <dd class="col-sm-8">{{ $product->stock_quantity }}</dd>
                     </dl>

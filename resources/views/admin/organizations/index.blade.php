@@ -24,7 +24,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Добавитьress</th>
+                            <th>Адрес</th>
                             <th>Contact Number</th>
                             <th>Actions</th>
                         </tr>
@@ -35,7 +35,7 @@
                                 <td>{{ $organization->organization_id }}</td>
                                 <td>{{ $organization->name }}</td>
                                 <td>{{ $organization->type }}</td>
-                                <td>{{ $organization->Добавитьress }}</td>
+                                <td>{{ $organization->address }}</td>
                                 <td>{{ $organization->contact_number }}</td>
                                 <td>
                                     <a href="{{ route('organizations.show', $organization) }}" class="btn btn-sm btn-success">View</a>

@@ -16,7 +16,13 @@ return new class extends Migration
             $table->foreignId('organization_id')->constrained('organizations', 'organization_id');
             $table->foreignId('warehouse_id')->constrained('warehouses', 'warehouse_id');
             $table->string('name')->nullable();
-            $table->string('sku')->nullable();
+            $table->string('article')->nullable();
+            $table->string('brand')->nullable();
+            $table->string('color')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('manufacturer')->nullable();
+            $table->text('sku')->nullable();
+            $table->text('location')->nullable();
             $table->integer('stock_quantity')->nullable();
             $table->timestamps();
         });
