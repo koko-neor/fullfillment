@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\OrderFile;
+use App\Models\OrderTask;
 use App\Models\Organization;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Warehouse;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,11 +54,7 @@ class OrderController extends Controller
             'type' => 'required|string|in:приемка,выдача',
             'marketplace' => 'nullable|string',
             'comment' => 'nullable|string',
-            'products' => 'sometimes|array',
-            'products.*.product_id' => 'nullable|exists:products,product_id',
-            'products.*.quantity_ordered' => 'required_with:products|integer',
-            'new_product.name' => 'nullable|string',
-            'new_product.stock_quantity' => 'nullable|integer',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
         ]);
 
         $validated['organization_id'] = Auth::user()->organization_id;
@@ -73,40 +73,29 @@ class OrderController extends Controller
 
         $order->save();
 
-        // Обработка существующих продуктов
-        if (!empty($validated['products'])) {
-            foreach ($validated['products'] as $productData) {
-                $product = Product::find($productData['product_id']);
-
-                $product->decrement('stock_quantity', $productData['quantity_ordered']);
-
-                OrderDetail::create([
-                    'order_id' => $order->order_id,
-                    'product_id' => $product->product_id,
-                    'quantity_ordered' => $productData['quantity_ordered'],
-                ]);
-            }
+        // Сохранение файла
+        if ($request->hasFile('file')) {
+            $filePath = $request->file('file')->store('uploads', 'public');
+            OrderFile::create([
+                'task_id' => null,
+                'uploaded_by' => Auth::id(),
+                'file_path' => $filePath,
+                'file_type' => $request->file('file')->getClientOriginalExtension(),
+                'uploaded_at' => now(),
+            ]);
         }
 
-        // Обработка нового продукта
-        if (!empty($validated['new_product']['name'])) {
-            $newProduct = Product::create([
-                'organization_id' => $order->organization_id,
-                'warehouse_id' => $order->warehouse_id,
-                'name' => $validated['new_product']['name'],
-                'stock_quantity' => $validated['new_product']['stock_quantity'],
-            ]);
+        // Добавление задачи
+        OrderTask::create([
+            'order_id' => $order->order_id,
+            'assigned_to' => Auth::id(),
+            'task_type' => 'Order Creation',
+            'status' => 'Pending',
+            'comments' => $comment,
+            'created_at' => now(),
+        ]);
 
-            OrderDetail::create([
-                'order_id' => $order->order_id,
-                'product_id' => $newProduct->product_id,
-                'quantity_ordered' => $validated['new_product']['stock_quantity'],
-            ]);
-
-            $newProduct->decrement('stock_quantity', $validated['new_product']['stock_quantity']);
-        }
-
-        return redirect()->route('orders.index');
+        return redirect()->route('orders.show', $order->order_id);
     }
 
     /**
@@ -117,7 +106,89 @@ class OrderController extends Controller
      */
     public function show(Order $order): View
     {
-        return view('admin.orders.show', compact('order'));
+        $orderDetails = $order->orderDetails()->with('product')->get();
+        $products = Product::all();
+        $tasks = $order->tasks()->get();
+        $users = User::all();
+
+        return view('admin.orders.show', compact('order', 'orderDetails', 'products', 'tasks', 'users'));
+    }
+
+    /**
+     * Создать новый продукт через AJAX.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function storeProductAjax(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'stock_quantity' => 'required|integer',
+            'article' => 'nullable|string',
+            'brand' => 'nullable|string',
+            'color' => 'nullable|string',
+            'weight' => 'nullable|string',
+            'manufacturer' => 'nullable|string',
+            'location' => 'nullable|string',
+        ]);
+
+        $validated['organization_id'] = Auth::user()->organization_id ?? null;
+        $warehouse = Warehouse::where('organization_id', $validated['organization_id'])->firstOrFail();
+        $validated['warehouse_id'] = $warehouse->warehouse_id ?? null;
+
+        $product = Product::create($validated);
+
+        return response()->json(['success' => true, 'product' => $product]);
+    }
+
+    public function removeProductFromOrderAjax(Request $request, Order $order): JsonResponse
+    {
+        $validated = $request->validate([
+            'detail_id' => 'required|exists:order_details,detail_id',
+        ]);
+
+        $orderDetail = OrderDetail::find($validated['detail_id']);
+        $product = Product::find($orderDetail->product_id);
+        $product->increment('stock_quantity', $orderDetail->quantity_ordered);
+
+        $orderDetail->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function searchProductsAjax(Request $request): JsonResponse
+    {
+        $search = $request->input('text');
+        $products = Product::where('name', 'LIKE', "%{$search}%")->get(['product_id', 'name as text']);
+
+        return response()->json($products);
+    }
+
+    /**
+     * Добавить продукт к заказу через AJAX.
+     *
+     * @param Request $request
+     * @param Order $order
+     * @return JsonResponse
+     */
+    public function addProductToOrderAjax(Request $request, Order $order): JsonResponse
+    {
+        $validated = $request->validate([
+            'product_id' => 'required|exists:products,product_id',
+            'quantity_ordered' => 'required|integer',
+        ]);
+
+        $product = Product::find($validated['product_id']);
+        $product->decrement('stock_quantity', $validated['quantity_ordered']);
+
+        OrderDetail::create([
+            'order_id' => $order->order_id,
+            'product_id' => $product->product_id,
+            'quantity_ordered' => $validated['quantity_ordered'],
+        ]);
+
+        return response()->json(['success' => true]);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OrderTask;
 use App\Models\Order;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -38,27 +39,19 @@ class OrderTaskController extends Controller
         return view('admin.order-tasks.form', compact('orders', 'users'));
     }
 
-    /**
-     * Store a newly created order task in storage.
-     *
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
             'order_id' => 'required|exists:orders,order_id',
             'assigned_to' => 'required|exists:users,user_id',
-            'task_type' => 'nullable|string',
-            'status' => 'nullable|string',
+            'task_type' => 'required|string',
+            'status' => 'required|string',
             'comments' => 'nullable|string',
-            'created_at' => 'nullable|date',
-            'completed_at' => 'nullable|date',
         ]);
 
-        OrderTask::create($validated);
+        $orderTask = OrderTask::create($validated);
 
-        return redirect()->route('order-tasks.index');
+        return response()->json(['success' => true, 'task' => $orderTask]);
     }
 
     /**

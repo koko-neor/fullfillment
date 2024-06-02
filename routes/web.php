@@ -51,4 +51,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'index'])->name('admin.home');
 });
 
+Route::post('/orders/{order}/add-product', [OrderController::class, 'addProductToOrderAjax'])->name('orders.addProductToOrderAjax');
+Route::post('/products/create', [OrderController::class, 'storeProductAjax'])->name('orders.storeProductAjax');
+Route::delete('/orders/{order}/remove-product', [OrderController::class, 'removeProductFromOrderAjax'])->name('orders.removeProductFromOrderAjax');
+Route::get('/products/search', [OrderController::class, 'searchProductsAjax'])->name('orders.searchProductsAjax');
+
+Route::post('/order-tasks/store', [OrderTaskController::class, 'store'])->name('order-tasks.store');
+
 Auth::routes(['register' => false, 'reset' => false]);
